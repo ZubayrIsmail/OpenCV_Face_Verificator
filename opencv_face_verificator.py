@@ -86,7 +86,7 @@ def recognise(ground_truth_file_directory, candidate_file_path):
     Validate a candidate against an image using a given model
     :param ground_truth_file_path:
     :param candidate_file_path:
-    :param model: defaults to Resnet50
+    :param model: Local Binary Patterns
     :return: score between 0 and 1 (lower is better)
     '''
     faces=[]
@@ -121,5 +121,6 @@ if __name__ == "__main__":
     #test = extract_face('00005/00005_941121_fa.ppm')
     #test = recognise('00003','Selena_Gomez1.jpg')
     test = validate('00003/00003_940307_fb_a.ppm','mueez3.JPEG')
-    
+    confidence = "  {0}%".format(round(100 - test[0]))
     print(test)
+    print (confidence)
